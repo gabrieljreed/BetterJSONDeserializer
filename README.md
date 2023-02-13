@@ -1,4 +1,4 @@
-# BetterJSONDeserializer
+# jObject
 Improved JSON deserializer for Python that allows for remapping to custom object types and nested objects. This allows for saving/loading complex Python objects while still preserving them in a human-readable format.
 
 Example Usage:
