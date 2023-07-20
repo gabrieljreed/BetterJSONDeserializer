@@ -1,4 +1,4 @@
-# jObject
+# j_classify
 
 Improved JSON deserializer for Python that allows for remapping to custom object types and nested objects. This allows for saving/loading complex Python objects, like using `pickle` while still preserving them in a human-readable format.
 
@@ -7,10 +7,10 @@ Example Usage:
 ``` python
 import json
 
-import jObject
+import j_classify
 
 
-class character(jObject.jObject):
+class character(j_object.j_object):
     def __init__(self, name="Character", age=0):
         super().__init__()
         self.name = name
@@ -18,13 +18,13 @@ class character(jObject.jObject):
 
         self.rigs = []
 
-class rig(jObject.jObject):
+class rig(j_object.j_object):
     def __init__(self, name="Rig"):
         super().__init__()
         self.name = name
         self.modules = {}
 
-class motionModule(jObject.jObject):
+class motionModule(j_object.j_object):
     def __init__(self, name="Module"):
         super().__init__()
         self.name = name
@@ -43,8 +43,8 @@ rig.modules[motionModule.name] = motionModule
 char.rigs.append(rig)
 
 # Dump the character to JSON
-characterData = json.dumps(char, cls=jObject.jObjectEncoder, indent=4)
+characterData = json.dumps(char, cls=j_object.j_object_encoder, indent=4)
 
 # Load the character from JSON
-char = json.loads(characterData, object_hook=jObject.loadJObject)
+char = json.loads(characterData, object_hook=j_object.load_j_object)
 ```

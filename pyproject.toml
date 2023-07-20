@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "j_classify"
+authors = [{name = "Gabe Reed", email = "gabrieljreed@gmail.com"}]
+description = "Improved JSON deserialization for Python"
+version = "0.1.0"
+keywords = ["json", "deserialization", "serialization", "object", "mapping", "mapping", "dict", "dictionary",
+    "dataclass", "dataclasses", "data", "class", "classes", "jsonobject", "json-object",]
+license = {file = "LICENSE"}
+readme = "README.md"
+
+[project.urls]
+homepage = "https://github.com/gabrieljreed/jObject"
