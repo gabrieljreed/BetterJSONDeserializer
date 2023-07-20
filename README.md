@@ -1,8 +1,10 @@
 # jObject
-Improved JSON deserializer for Python that allows for remapping to custom object types and nested objects. This allows for saving/loading complex Python objects while still preserving them in a human-readable format.
+
+Improved JSON deserializer for Python that allows for remapping to custom object types and nested objects. This allows for saving/loading complex Python objects, like using `pickle` while still preserving them in a human-readable format.
 
 Example Usage:
-``` py
+
+``` python
 import json
 
 import jObject
@@ -45,6 +47,4 @@ characterData = json.dumps(char, cls=jObject.jObjectEncoder, indent=4)
 
 # Load the character from JSON
 char = json.loads(characterData, object_hook=jObject.loadJObject)
-
-
 ```

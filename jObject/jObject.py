@@ -4,11 +4,12 @@ Usage:
     json.load(file, object_hook=loadJObject)
 
 Classes:
-    jObject (jObject): A base class for all jObjects (JSON deserializable objects). This class is used to identify the object type.
+    jObject (jObject): A base class for all jObjects (JSON deserializable objects). This class is used to identify the
+    object type.
 
 Methods:
     loadJObject (function): Return a jObject from a dictionary. Use this method as the object_hook for json.load.
-    listAllJObjects (function): Return a dict of the naems of all jObject objects and their classes.
+    listAllJObjects (function): Return a dict of the names of all jObject objects and their classes.
 
     jObjectType (str): The name of the object type.
 
@@ -52,13 +53,13 @@ def loadJObject(d: dict) -> jObject:
     return newObject
 
 
-def listAllJObjects() -> list:
-    """Return a dict of the naems of all jObject objects and their classes."""
+def listAllJObjects() -> dict:
+    """Return a dict of the names of all jObject objects and their classes."""
     classes = {}
 
     for cls in jObject.__subclasses__():
         classes[cls.__name__] = cls
-        for subcls in cls.__subclasses__():
-            classes[subcls.__name__] = subcls
+        for subClass in cls.__subclasses__():
+            classes[subClass.__name__] = subClass
 
     return classes
