@@ -4,13 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "j_classify"
+version = "1.0.0"
 authors = [{name = "Gabe Reed", email = "gabrieljreed@gmail.com"}]
 description = "Improved JSON deserialization for Python"
-version = "0.1.0"
 keywords = ["json", "deserialization", "serialization", "object", "mapping", "mapping", "dict", "dictionary",
     "dataclass", "dataclasses", "data", "class", "classes", "jsonobject", "json-object",]
 license = {file = "LICENSE"}
 readme = "README.md"
+requires-python = ">=3.7.0"
 
 [project.urls]
-homepage = "https://github.com/gabrieljreed/jObject"
+"Homepage" = "https://github.com/gabrieljreed/jObject"
+"Bug Tracker" = "https://github.com/gabrieljreed/jObject/issues"
