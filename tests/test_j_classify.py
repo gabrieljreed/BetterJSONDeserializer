@@ -70,8 +70,8 @@ class TestJObject(unittest.TestCase):
         # Load the object from the file
         with open(file_path, "r") as file:
             # Load a json dictionary of the file contents
-            loaded_dict = json.load(file)
-            loaded_obj_1 = j_classify.load_j_object(loaded_dict)
+            json_data = json.loads(file.read())
+            loaded_obj_1 = json.loads(json.dumps(json_data), object_hook=j_classify.load_j_object)
 
         # Check the loaded object
         self.assertTrue(isinstance(loaded_obj_1, test_class_1), f"loaded_obj_1 is not a test_class_1, it is a {loaded_obj_1.__class__.__name__}")
@@ -80,7 +80,7 @@ class TestJObject(unittest.TestCase):
         self.assertEqual(loaded_obj_1.boolean, False, "loaded_obj_1.boolean is not False")
         self.assertEqual(len(loaded_obj_1.children), 1, "loaded_obj_1.children does not have 1 item")
         self.assertTrue(isinstance(loaded_obj_1.children[0], test_class_2),
-                        "loaded_obj_1.children[0] is not a test_class_2")
+                        f"loaded_obj_1.children[0] is not a test_class_2, it is a {loaded_obj_1.children[0].__class__.__name__}")
         self.assertEqual(loaded_obj_1.children[0].name, "obj_2", "loaded_obj_1.children[0].name is not 'obj_2'")
         self.assertEqual(loaded_obj_1.children[0].number, 3, "loaded_obj_1.children[0].number is not 3")
         self.assertEqual(loaded_obj_1.children[0].boolean, True, "loaded_obj_1.children[0].boolean is not True")
