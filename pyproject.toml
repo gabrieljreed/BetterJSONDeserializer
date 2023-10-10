@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "j_classify"
-version = "1.0.0"
+version = "1.1.0"
 authors = [{name = "Gabe Reed", email = "gabrieljreed@gmail.com"}]
 description = "Improved JSON deserialization for Python"
 keywords = ["json", "deserialization", "serialization", "object", "mapping", "mapping", "dict", "dictionary",
