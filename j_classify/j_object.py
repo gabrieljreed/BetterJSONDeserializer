@@ -45,14 +45,13 @@ def load_j_object(d: dict) -> j_object:
     """
     object_type = d.get("j_object_type")
     new_object = list_all_j_objects().get(object_type)
+    new_object = new_object() if new_object is not None else None
 
     if new_object is None:
         return d
 
     for var in d:
         if var in vars(new_object):
-            # FIXME: We never get in here because vars(new_object) is empty.
-            # I'm not sure if the problem is here or if it's in list_all_j_objects().
             setattr(new_object, var, d[var])
 
     return new_object
